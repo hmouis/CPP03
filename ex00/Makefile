@@ -1,16 +1,22 @@
 Name= ClapTrap
 
-src= main.cpp ClapTrap.cpp
-
-CC= c++
+CC= c++ 
 CFLAGS= -Wall -Wextra -Werror -std=c++98
-
+src= main.cpp ClapTrap.cpp
+obj= $(src:.cpp=.o)
+ 
 all: $(Name)
 
-$(Name): $(src)
-	$(CC) $(CFLAGS) -o $@ $(src)
+$(Name): $(obj)
+	$(CC) $(CFLAGS) -o $@ $^
 
-fclean:
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(obj)
+
+fclean:clean
 	rm -f $(Name)
 
 re: fclean all
