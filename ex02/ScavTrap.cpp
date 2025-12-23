@@ -4,31 +4,26 @@ ScavTrap::ScavTrap(){ std::cout << "ScavTrap default constructor called\n"; }
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
 {
-    this->Name = Name;
+    std::cout << "ScapTrap Parametrized constructor called\n";
     HitPoints = 100;
     EnergyPoints = 50;
     AttackDamage = 20;
-    std::cout << "ScapTrap Parametrized constructor called\n";
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other)
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-    this->Name = other.Name;
-    this->HitPoints = other.HitPoints;
-    this->EnergyPoints = other.EnergyPoints;
-    this->AttackDamage = other.AttackDamage;
     std::cout << "ScavTrap Copy constructor called\n";
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
+    std::cout << "ScavTrap Copy assignment operator called\n";
     if (this != &other)
     {
         this->Name = other.Name;
         this->HitPoints = other.HitPoints;
         this->EnergyPoints = other.EnergyPoints;
         this->AttackDamage = other.AttackDamage;
-        std::cout << "ScavTrap Copy assignment operator called\n";
     }
     return *this;
 }
@@ -40,7 +35,7 @@ void ScavTrap::attack(const std::string& target)
     else if (getEnergyPoints() > 0)
     {
         setEnergyPoints(getEnergyPoints() - 1);
-        std::cout << "ClapTrap " << this->Name << " attacks " << target <<", causing " <<
+        std::cout << "ScavTrap " << this->Name << " attacks " << target <<", causing " <<
             getAttackDamage() << " points of damage!" << std::endl;
     }
     else
