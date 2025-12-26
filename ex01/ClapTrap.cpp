@@ -31,6 +31,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
     return *this;
 }
 
+void ClapTrap::setName(const std::string& Name) {this->Name = Name; };
 void ClapTrap::setHitPoints(const unsigned int& HitPoints) {this->HitPoints = HitPoints; };
 void ClapTrap::setEnergyPoints(const unsigned int& EnergyPoints) {this->EnergyPoints = EnergyPoints; };
 void ClapTrap::setAttackDamage(const unsigned int& AttackDamage) {this->AttackDamage = AttackDamage; };

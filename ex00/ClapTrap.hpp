@@ -17,6 +17,7 @@ class ClapTrap
         ClapTrap& operator=(const ClapTrap& other);
         ~ClapTrap();
         
+        void setName(const std::string& Name);
         void setHitPoints(const unsigned int& HitPoints);
         void setEnergyPoints(const unsigned int& EnergyPoints);
         void setAttackDamage(const unsigned int& AttackDamage);
