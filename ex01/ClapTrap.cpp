@@ -1,6 +1,9 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){ std::cout << "Default constructor called\n";}
+ClapTrap::ClapTrap(): Name(""), HitPoints(10), EnergyPoints(10), AttackDamage(0)
+{
+     std::cout << "Default constructor called\n";
+}
 
 ClapTrap::ClapTrap(std::string Name): Name(Name), HitPoints(10), EnergyPoints(10), AttackDamage(0)
 {
@@ -10,12 +13,7 @@ ClapTrap::ClapTrap(std::string Name): Name(Name), HitPoints(10), EnergyPoints(10
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
     std::cout << "Copy constructor called\n";
-    if (this != &other){
-        this->Name = other.Name;
-        this->HitPoints = other.HitPoints;
-        this->EnergyPoints = other.EnergyPoints;
-        this->AttackDamage = other.AttackDamage;
-    }
+    *this = other;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
